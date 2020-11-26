@@ -6,7 +6,7 @@ function QuestionScreen({ title, number, handleAdvanceScreenClick }) {
     <div>
       <p>Question {number} of 3</p>
       <h1>{title}</h1>
-      <button onClick={handleAdvanceScreenClick}>Next</button>
+      <button onClick={() => handleAdvanceScreenClick()}>Next</button>
     </div>
   );
 }
