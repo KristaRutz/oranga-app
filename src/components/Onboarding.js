@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import QuestionScreen from "./QuestionScreen";
+import OnboardingStart from "./OnboardingStart";
 
 function Onboarding() {
   let userInputs = {
@@ -42,11 +43,14 @@ function Onboarding() {
   }
 
   return (
-    <QuestionScreen
-      title={title}
-      number={number}
-      handleAdvanceScreenClick={advanceScreen}
-    />
+    <>
+      <OnboardingStart />
+      <QuestionScreen
+        title={title}
+        number={number}
+        handleAdvanceScreenClick={advanceScreen}
+      />
+    </>
   );
 }
 
