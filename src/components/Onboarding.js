@@ -26,15 +26,19 @@ function Onboarding() {
     case 0:
       title = "How am I feeling right now?";
       number = 1;
+      break;
     case 1:
       title = "What do you think is causing you to feel this way?";
       number = 2;
+      break;
     case 2:
       title = "How are you currently dealing with this?";
       number = 3;
+      break;
     default:
       title = "Welcome";
-      number = NaN;
+      number = 0;
+      break;
   }
 
   return (
