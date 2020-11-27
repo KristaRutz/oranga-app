@@ -7,8 +7,8 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>Project Oranga</h1>
-        <SignIn />
       </header>
+      <SignIn />
       <Footer></Footer>
     </div>
   );
