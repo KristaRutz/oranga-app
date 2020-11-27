@@ -1,6 +1,6 @@
 import React from "react";
 
-function ReflectionThree() {
+function ReflectionThree({ handleContinueClick, handleBackClick }) {
   return (
     <div>
       <div>
@@ -21,7 +21,8 @@ function ReflectionThree() {
           <button>Other</button>
         </div>
       </div>
-      <button>{">"}</button>
+      <button onClick={handleBackClick}>Back</button>
+      <button onClick={handleContinueClick}>{">"}</button>
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import React from "react";
 
-function OnboardingStart() {
+function OnboardingStart({ handleContinueClick }) {
   return (
     <div>
       <div>
@@ -18,7 +18,7 @@ function OnboardingStart() {
             By knowing yourself, you will be the best version of yourself. It’s
             time for you to break free from burnout.
           </p>
-          <button>Continue</button>
+          <button onClick={handleContinueClick}>Continue</button>
         </div>
         <img />
       </div>

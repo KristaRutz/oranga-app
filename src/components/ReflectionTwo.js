@@ -1,6 +1,6 @@
 import React from "react";
 
-function ReflectionTwo() {
+function ReflectionTwo({ handleContinueClick, handleBackClick }) {
   return (
     <div>
       <div>
@@ -21,7 +21,8 @@ function ReflectionTwo() {
           <button>Other</button>
         </div>
       </div>
-      <button>{">"}</button>
+      <button onClick={handleBackClick}>Back</button>
+      <button onClick={handleContinueClick}>{">"}</button>
     </div>
   );
 }

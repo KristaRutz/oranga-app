@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import QuestionScreen from "./QuestionScreen";
+// import QuestionScreen from "./QuestionScreen";
 import OnboardingStart from "./OnboardingStart";
 import ReflectionOne from "./ReflectionOne";
 import ReflectionTwo from "./ReflectionTwo";
@@ -22,14 +22,50 @@ function Onboarding() {
       setScreen(screen + 1);
     }
   };
+  const goBackScreen = () => {
+    console.log(screen);
+    if (screen <= 0) {
+      // do something
+    } else {
+      setScreen(screen - 1);
+    }
+  };
+  const completeReflectionOne = (emotion) => {
+    userInputs.question1 = emotion;
+    advanceScreen();
+  };
+  const completeReflectionTwo = (burnoutSource) => {
+    userInputs.question2 = burnoutSource;
+    // determine the questions to show in screen 3
+    advanceScreen();
+  };
+  const completeReflectionThree = (currentPractices) => {
+    userInputs.question3 = currentPractices;
+    advanceScreen();
+  };
 
   return (
     <>
-      {screen === 0 && <OnboardingStart />}
-      {screen === 1 && <ReflectionOne />}
-      {screen === 2 && <ReflectionTwo />}
-      {screen === 3 && <ReflectionThree />}
-      <button onClick={advanceScreen}>Next</button>
+      {screen === 0 && <OnboardingStart handleContinueClick={advanceScreen} />}
+      {screen === 1 && (
+        <ReflectionOne
+          handleContinueClick={completeReflectionOne}
+          handleBackClick={goBackScreen}
+        />
+      )}
+      {screen === 2 && (
+        <ReflectionTwo
+          handleContinueClick={completeReflectionTwo}
+          handleBackClick={goBackScreen}
+        />
+      )}
+      {screen === 3 && (
+        <ReflectionThree
+          handleContinueClick={completeReflectionThree}
+          handleBackClick={goBackScreen}
+        />
+      )}
+      {/* <button onClick={advanceScreen}>Next</button> */}
     </>
   );
 }
