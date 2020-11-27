@@ -6,7 +6,7 @@ import ReflectionTwo from "./ReflectionTwo";
 import ReflectionThree from "./ReflectionThree";
 import OnboardingFinish from "./OnboardingFinish";
 
-function Onboarding() {
+function OnboardingController() {
   let userInputs = {
     question1: 1,
     question2: [],
@@ -71,4 +71,4 @@ function Onboarding() {
   );
 }
 
-export default Onboarding;
+export default OnboardingController;
