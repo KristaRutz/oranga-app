@@ -17,7 +17,12 @@ function SignIn({ user, loading, signOut, signInWithGoogle }) {
       {user ? (
         <button onClick={signOut}>Sign out</button>
       ) : (
-        <button onClick={signInWithGoogle}>Sign in with Google</button>
+        <button
+          class="authProvider-google authProvider btn"
+          onClick={signInWithGoogle}
+        >
+          Sign in with Google
+        </button>
       )}
     </div>
   );
