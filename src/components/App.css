@@ -1,5 +1,5 @@
 .App {
-  margin: 0vh 5vw 5vh 5vw;
+  padding: 0vh 5vw 5vh 5vw;
 }
 
 .App-header {
@@ -10,4 +10,20 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: #282c34;
+}
+
+button {
+  border-radius: 2px;
+  padding: 1vh;
+  border: none;
+}
+
+.authProvider {
+  background-color: white;
+  font-family: inherit;
+}
+
+.authProvider-google {
+  background-color: rgb(202, 77, 77);
+  color: white;
 }
