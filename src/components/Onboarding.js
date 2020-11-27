@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-// import QuestionScreen from "./QuestionScreen";
+
 import OnboardingStart from "./OnboardingStart";
 import ReflectionOne from "./ReflectionOne";
 import ReflectionTwo from "./ReflectionTwo";
 import ReflectionThree from "./ReflectionThree";
+import OnboardingFinish from "./OnboardingFinish";
 
 function Onboarding() {
   let userInputs = {
@@ -65,7 +66,7 @@ function Onboarding() {
           handleBackClick={goBackScreen}
         />
       )}
-      {/* <button onClick={advanceScreen}>Next</button> */}
+      {screen === 4 && <OnboardingFinish handleBackClick={goBackScreen} />}
     </>
   );
 }
