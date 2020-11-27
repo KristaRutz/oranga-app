@@ -18,6 +18,10 @@ button {
   border: none;
 }
 
+h1 {
+  font-weight: 400;
+}
+
 .authProvider {
   background-color: white;
   font-family: inherit;
