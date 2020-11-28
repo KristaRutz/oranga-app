@@ -1,14 +1,12 @@
 import "./App.css";
 import SignIn from "./SignIn";
+import OnboardingController from "./OnboardingController";
 import Footer from "./Footer";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Project Oranga</h1>
-      </header>
-      <SignIn />
+      <OnboardingController />
       <Footer></Footer>
     </div>
   );

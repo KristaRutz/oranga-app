@@ -1,6 +1,6 @@
 import React from "react";
 
 function Footer() {
-  return <p>By Sam, Krista, and Becky</p>;
+  return <p>Copyright 2020 Sam Wong, Krista Rutz, Becky Zhang</p>;
 }
 export default Footer;
