@@ -1,14 +1,42 @@
 import React from "react";
+import styled from "styled-components";
+
+const Hero = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  width: 100vw;
+  background: #fffcfa;
+  text-align: center;
+`;
+const Title = styled.h1`
+  font-weight: 500;
+  font-style: normal;
+  font-size: 32px;
+  line-height: 37px;
+  text-align: center;
+`;
+const SubTitle = styled.p`
+  font-weight: 400px;
+  font-style: italic;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+`;
 
 function OnboardingStart({ handleContinueClick }) {
   return (
     <div>
-      <div>
-        <h1>Welcome to ___</h1>
-        <p className="lead">
-          A self-therapy experience designed to optimize your mental wellbeing
-        </p>
-      </div>
+      <Hero>
+        <div>
+          <Title>Welcome to Oranga</Title>
+          <SubTitle className="lead">
+            A digital therapy experience designed to optimize your mental
+            wellbeing through self-guided actions.
+          </SubTitle>
+        </div>
+      </Hero>
       <div>
         <div>
           <h2>
