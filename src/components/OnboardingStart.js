@@ -14,15 +14,41 @@ const Title = styled.h1`
   font-weight: 500;
   font-style: normal;
   font-size: 32px;
-  line-height: 37px;
+  line-height: 1.17em;
   text-align: center;
 `;
 const SubTitle = styled.p`
-  font-weight: 400px;
-  font-style: italic;
+  font-weight: 400;
+  font-style: normal;
   font-size: 16px;
-  line-height: 19px;
-  text-align: center;
+  line-height: 1.17em;
+`;
+const ItalicSubTitle = styled(SubTitle)`
+  font-style: italic;
+`;
+const H2 = styled.h2`
+  font-weight: 500;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 1.17em;
+`;
+const Row = styled.div`
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-around;
+`;
+const Col = styled.div`
+  width: 50%;
+`;
+const Button = styled.button`
+  outline: none;
+  background: #ffcc99;
+  border-radius: 100px;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 1.17em;
+  padding: 0.7em 5em;
 `;
 
 function OnboardingStart({ handleContinueClick }) {
@@ -31,25 +57,27 @@ function OnboardingStart({ handleContinueClick }) {
       <Hero>
         <div>
           <Title>Welcome to Oranga</Title>
-          <SubTitle className="lead">
+          <ItalicSubTitle className="lead">
             A digital therapy experience designed to optimize your mental
             wellbeing through self-guided actions.
-          </SubTitle>
+          </ItalicSubTitle>
         </div>
       </Hero>
-      <div>
-        <div>
-          <h2>
+      <Row>
+        <Col>
+          <H2>
             Let's get you to start reflecting on how you're doing right now.
-          </h2>
-          <p>
+          </H2>
+          <SubTitle>
             By knowing yourself, you will be the best version of yourself. It’s
             time for you to break free from burnout.
-          </p>
-          <button onClick={handleContinueClick}>Continue</button>
-        </div>
-        <img />
-      </div>
+          </SubTitle>
+          <Button onClick={handleContinueClick}>Continue</Button>
+        </Col>
+        <Col background="#DADADA">
+          <img alt="blank" height="150px" width="150px" background="#DADADA" />
+        </Col>
+      </Row>
     </div>
   );
 }
