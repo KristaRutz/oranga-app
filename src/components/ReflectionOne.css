@@ -1,0 +1,27 @@
+label {
+  width: 146px;
+  margin: 10px;
+}
+
+.radio-input {
+  display: none;
+}
+
+.card-input {
+  height: 146px;
+  width: 100%;
+  background: #f0e3df;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-input:hover {
+  cursor: pointer;
+}
+
+.radio-input:checked + .card-input {
+  box-shadow: 0px 14px 16px rgba(0, 0, 0, 0.25);
+}
