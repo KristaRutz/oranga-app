@@ -1,24 +1,59 @@
 import React from "react";
 
+const WORKLOAD = "workload";
+const CONTROL = "control";
+const REWARD = "reward";
+const COMMUNITY = "community";
+const FAIRNESS = "fairness";
+const VALUES = "values";
+
+const factors = {
+  1: {
+    name: WORKLOAD,
+    description: "I am overwhelmed by my workload",
+  },
+  2: {
+    name: CONTROL,
+    description: "I don't have control over my work context",
+  },
+  3: {
+    name: REWARD,
+    description: "I am not appropiately rewarded for the work I do",
+  },
+  4: {
+    name: COMMUNITY,
+    description: "My workplace culture causes burnout",
+  },
+  5: {
+    name: FAIRNESS,
+    description: "I'm not treated fairly at work",
+  },
+  6: {
+    name: VALUES,
+    description: "My work doesn't align with my values",
+  },
+};
+
 function ReflectionTwo({ handleContinueClick, handleBackClick }) {
   return (
     <div>
       <div>
-        <p>Reflection 2 of 3</p>
+        <p>Reflection 2 of 4</p>
       </div>
       <div>
         <div>
-          <h2>What do you think is causing you to feel this way?</h2>
+          <h2>What is causing me to burn out?</h2>
           <p class="description">Pick the main factor</p>
         </div>
         <div>
-          <button>I am overwhelmed by my workload</button>
-          <button>I don't have control over my work context</button>
-          <button>I am not appropiately rewarded for the work I do</button>
-          <button>My workplace culture causes burnout</button>
-          <button>I'm not treated fairly at work</button>
-          <button>My work doesn't align with my values</button>
-          <button>Other</button>
+          <select name="burnout factors" id="burnout-factors-select-list">
+            <option value={factors[1].name}>{factors[1].description}</option>
+            <option value={factors[2].name}>{factors[2].description}</option>
+            <option value={factors[3].name}>{factors[3].description}</option>
+            <option value={factors[4].name}>{factors[4].description}</option>
+            <option value={factors[5].name}>{factors[5].description}</option>
+            <option value={factors[6].name}>{factors[6].description}</option>
+          </select>
         </div>
       </div>
       <button onClick={handleBackClick}>Back</button>
