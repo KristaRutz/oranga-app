@@ -4,7 +4,7 @@ function ReflectionThree({ handleContinueClick, handleBackClick }) {
   return (
     <div>
       <div>
-        <p>Reflection 3 of 3</p>
+        <p>Reflection 3 of 4</p>
       </div>
       <div>
         <div>
