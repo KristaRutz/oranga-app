@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 const WORKLOAD = "workload";
 const CONTROL = "control";
@@ -35,6 +35,17 @@ const factors = {
 };
 
 function ReflectionTwo({ handleContinueClick, handleBackClick }) {
+  console.log(sessionStorage);
+
+  const [burnoutFactorSelection, setBurnoutFactorSelection] = useState("");
+
+  const selectAnswer = (event) => {
+    event.preventDefault();
+    const val = event.target.value;
+    setBurnoutFactorSelection(val);
+    sessionStorage.setItem("burnoutFactor", val);
+  };
+
   return (
     <div>
       <div>
@@ -46,7 +57,14 @@ function ReflectionTwo({ handleContinueClick, handleBackClick }) {
           <p class="description">Pick the main factor</p>
         </div>
         <div>
-          <select name="burnout factors" id="burnout-factors-select-list">
+          <select
+            name="burnout factors"
+            id="burnout-factors-select-list"
+            onChange={(event) => selectAnswer(event)}
+          >
+            <option value="" disabled>
+              --Select one--
+            </option>
             <option value={factors[1].name}>{factors[1].description}</option>
             <option value={factors[2].name}>{factors[2].description}</option>
             <option value={factors[3].name}>{factors[3].description}</option>
