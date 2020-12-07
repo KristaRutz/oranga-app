@@ -74,6 +74,11 @@ function ReflectionTwo({ handleContinueClick, handleBackClick }) {
           </select>
         </div>
       </div>
+      {burnoutFactorSelection != "" && (
+        <div>
+          <h4>{burnoutFactorSelection}</h4>
+        </div>
+      )}
       <button onClick={handleBackClick}>Back</button>
       <button onClick={handleContinueClick}>{">"}</button>
     </div>
