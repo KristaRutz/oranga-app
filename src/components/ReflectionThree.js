@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import "./ReflectionThree.css";
 
 const REFLECTING = "Reflecting";
 const TALKING_TO_MANAGER = "Talking to manager";
@@ -22,34 +21,42 @@ const strategies = [
   EXERCISE,
 ];
 
-const Button = styled.label`
-  //background: ${(props) => (props.selected ? "#FFE5CC" : "#fff")};
-  border: 1px solid #666666;
-  box-sizing: border-box;
-  border-radius: 40px;
-  padding: 5px 15px;
-  //margin: 0px 12px 25px 0px;
+const PillGallery = styled.div`
+  display: block;
+`;
+const Label = styled.label`
+  //display: inline;
 `;
 const Input = styled.input`
   display: none;
-  & + .pill-input {
-    background: green;
+  & ~ .pill-input {
+    background: #fff;
+  }
+  &:checked {
+    & ~ .pill-input {
+      background: #ffe5cc;
+    }
   }
 `;
 const Pill = styled.div`
-  //background: ${(props) => (props.selected ? "#FFE5CC" : "#fff")};
   border: 1px solid #666666;
+  display: inline-block;
   box-sizing: border-box;
   border-radius: 40px;
   padding: 5px 15px;
   margin: 0px 12px 25px 0px;
+  :hover {
+    cursor: pointer;
+  }
 `;
+
 function ReflectionThree({ handleContinueClick, handleBackClick }) {
   const [selectedStrategies, setSelectedStrategies] = useState(
     new Array(strategies.length)
   );
 
   const handleSelect = (val) => {
+    // convert this to use the setSelectedStrategies function
     if (selectedStrategies[val] === true) {
       selectedStrategies[val] = false;
       console.log("deselect ", val);
@@ -70,59 +77,40 @@ function ReflectionThree({ handleContinueClick, handleBackClick }) {
           <h2>How are you currently dealing with this?</h2>
           <p class="description">Select all that apply</p>
         </div>
-        <div>
-          <label for="strat-0" onChange={() => handleSelect(0)}>
-            <Input
-              //selected={selectedStrategies[0]}
-              name="strat-0"
-              type="checkbox"
-              class="checkbox-input"
-            />
-            <Pill class="pill-input">{strategies[0]}</Pill>
-          </label>
-          <Button
-            selected={selectedStrategies[1]}
-            onClick={() => handleSelect(1)}
-          >
-            {strategies[1]}
-          </Button>
-          <Button
-            selected={selectedStrategies[2]}
-            onClick={() => handleSelect(2)}
-          >
-            {strategies[2]}
-          </Button>
-          <Button
-            selected={selectedStrategies[3]}
-            onClick={() => handleSelect(3)}
-          >
-            {strategies[3]}
-          </Button>
-          <Button
-            selected={selectedStrategies[4]}
-            onClick={() => handleSelect(4)}
-          >
-            {strategies[4]}
-          </Button>
-          <Button
-            selected={selectedStrategies[5]}
-            onClick={() => handleSelect(5)}
-          >
-            {strategies[5]}
-          </Button>
-          <Button
-            selected={selectedStrategies[6]}
-            onClick={() => handleSelect(6)}
-          >
-            {strategies[6]}
-          </Button>
-          <Button
-            selected={selectedStrategies[7]}
-            onClick={() => handleSelect(7)}
-          >
-            {strategies[7]}
-          </Button>
-        </div>
+        <PillGallery>
+          <Label for="strat-0" onChange={() => handleSelect(0)}>
+            <Input id="strat-0" type="checkbox" className="checkbox-input" />
+            <Pill className="pill-input">{strategies[0]}</Pill>
+          </Label>
+          <Label for="strat-1" onChange={() => handleSelect(1)}>
+            <Input id="strat-1" type="checkbox" className="checkbox-input" />
+            <Pill className="pill-input">{strategies[1]}</Pill>
+          </Label>
+          <Label for="strat-2" onChange={() => handleSelect(2)}>
+            <Input id="strat-2" type="checkbox" className="checkbox-input" />
+            <Pill className="pill-input">{strategies[2]}</Pill>
+          </Label>
+          <Label for="strat-3" onChange={() => handleSelect(3)}>
+            <Input id="strat-3" type="checkbox" className="checkbox-input" />
+            <Pill className="pill-input">{strategies[3]}</Pill>
+          </Label>
+          <Label for="strat-4" onChange={() => handleSelect(4)}>
+            <Input id="strat-4" type="checkbox" className="checkbox-input" />
+            <Pill className="pill-input">{strategies[4]}</Pill>
+          </Label>
+          <Label for="strat-5" onChange={() => handleSelect(5)}>
+            <Input id="strat-5" type="checkbox" className="checkbox-input" />
+            <Pill className="pill-input">{strategies[5]}</Pill>
+          </Label>
+          <Label for="strat-6" onChange={() => handleSelect(6)}>
+            <Input id="strat-6" type="checkbox" className="checkbox-input" />
+            <Pill className="pill-input">{strategies[6]}</Pill>
+          </Label>
+          <Label for="strat-7" onChange={() => handleSelect(7)}>
+            <Input id="strat-7" type="checkbox" className="checkbox-input" />
+            <Pill className="pill-input">{strategies[7]}</Pill>
+          </Label>
+        </PillGallery>
       </div>
       <button onClick={handleBackClick}>Back</button>
       <button onClick={handleContinueClick}>{">"}</button>
