@@ -1,6 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
+
+const REFLECTING = "Reflecting";
+const TALKING_TO_MANAGER = "Talking to manager";
+const DAILY_PLANNING = "Daily planning";
+const UNPLUGGING_DIGITALLY = "Unplugging digitally";
+const SET_INTENTIONAL_TIME = "Set intentional time";
+const JOURNALING = "Journaling";
+const MEDITATION = "Meditation";
+const EXERCISE = "EXERCISING";
 
 function ReflectionThree({ handleContinueClick, handleBackClick }) {
+  const [strategies, setStrategies] = useState([]);
+
   return (
     <div>
       <div>
