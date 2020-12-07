@@ -1,0 +1,19 @@
+.checkbox-input {
+  display: none;
+}
+
+.pill-input {
+  background: green;
+}
+
+.pill-input:hover {
+  cursor: pointer;
+}
+
+#toggle:checked ~ .control-me {
+  /* A toggled state! No JavaScript! */
+}
+
+#strat-0:checked ~ .pill-input {
+  background: pink;
+}

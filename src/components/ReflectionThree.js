@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import "./ReflectionThree.css";
 
 const REFLECTING = "Reflecting";
 const TALKING_TO_MANAGER = "Talking to manager";
@@ -21,15 +22,28 @@ const strategies = [
   EXERCISE,
 ];
 
-const Button = styled.button`
-  background: ${(props) => (props.selected ? "#FFE5CC" : "#fff")};
+const Button = styled.label`
+  //background: ${(props) => (props.selected ? "#FFE5CC" : "#fff")};
+  border: 1px solid #666666;
+  box-sizing: border-box;
+  border-radius: 40px;
+  padding: 5px 15px;
+  //margin: 0px 12px 25px 0px;
+`;
+const Input = styled.input`
+  display: none;
+  & + .pill-input {
+    background: green;
+  }
+`;
+const Pill = styled.div`
+  //background: ${(props) => (props.selected ? "#FFE5CC" : "#fff")};
   border: 1px solid #666666;
   box-sizing: border-box;
   border-radius: 40px;
   padding: 5px 15px;
   margin: 0px 12px 25px 0px;
 `;
-
 function ReflectionThree({ handleContinueClick, handleBackClick }) {
   const [selectedStrategies, setSelectedStrategies] = useState(
     new Array(strategies.length)
@@ -57,12 +71,15 @@ function ReflectionThree({ handleContinueClick, handleBackClick }) {
           <p class="description">Select all that apply</p>
         </div>
         <div>
-          <Button
-            selected={selectedStrategies[0]}
-            onClick={() => handleSelect(0)}
-          >
-            {strategies[0]}
-          </Button>
+          <label for="strat-0" onChange={() => handleSelect(0)}>
+            <Input
+              //selected={selectedStrategies[0]}
+              name="strat-0"
+              type="checkbox"
+              class="checkbox-input"
+            />
+            <Pill class="pill-input">{strategies[0]}</Pill>
+          </label>
           <Button
             selected={selectedStrategies[1]}
             onClick={() => handleSelect(1)}
