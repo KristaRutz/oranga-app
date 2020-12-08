@@ -10,16 +10,48 @@ const JOURNALING = "Journaling";
 const MEDITATION = "Meditation";
 const EXERCISE = "Exercising";
 
-const strategies = [
-  REFLECTING,
-  TALKING_TO_MANAGER,
-  DAILY_PLANNING,
-  UNPLUGGING_DIGITALLY,
-  SET_INTENTIONAL_TIME,
-  JOURNALING,
-  MEDITATION,
-  EXERCISE,
-];
+const strategies = {
+  0: {
+    name: REFLECTING,
+    isUsing: false,
+    isEffective: null,
+  },
+  1: {
+    name: TALKING_TO_MANAGER,
+    isUsing: false,
+    isEffective: null,
+  },
+  2: {
+    name: DAILY_PLANNING,
+    isUsing: false,
+    isEffective: null,
+  },
+  3: {
+    name: UNPLUGGING_DIGITALLY,
+    isUsing: false,
+    isEffective: null,
+  },
+  4: {
+    name: SET_INTENTIONAL_TIME,
+    isUsing: false,
+    isEffective: null,
+  },
+  5: {
+    name: JOURNALING,
+    isUsing: false,
+    isEffective: null,
+  },
+  6: {
+    name: MEDITATION,
+    isUsing: false,
+    isEffective: null,
+  },
+  7: {
+    name: EXERCISE,
+    isUsing: false,
+    isEffective: null,
+  },
+};
 
 const PillGallery = styled.div`
   display: block;
@@ -54,15 +86,13 @@ function ReflectionThree({ handleContinueClick, handleBackClick }) {
 
   const handleSelect = (val) => {
     // convert this to use the setSelectedStrategies function
-    if (selectedStrategies[val] === true) {
-      selectedStrategies[val] = false;
-      // setSelectedStrategies(
-      //   Object.assign({}, selectedStrategies, { val: false })
-      // );
+    if (selectedStrategies[val].isUsing === true) {
+      selectedStrategies[val].isUsing = false;
+      //setSelectedStrategies({ ...selectedStrategies, [val]: false });
       console.log("deselect ", val);
     } else {
-      selectedStrategies[val] = true;
-      //setSelectedStrategies({ ...selectedStrategies, val: true });
+      selectedStrategies[val].isUsing = true;
+      //setSelectedStrategies({ ...selectedStrategies, [val]: true });
       console.log("select ", val);
     }
     console.log(selectedStrategies);
@@ -79,37 +109,37 @@ function ReflectionThree({ handleContinueClick, handleBackClick }) {
           <p class="description">Select all that apply</p>
         </div>
         <PillGallery>
-          <label for="strat-0" onChange={() => handleSelect(0)}>
+          <label htmlFor="strat-0" onChange={() => handleSelect(0)}>
             <Input id="strat-0" type="checkbox" className="checkbox-input" />
-            <Pill className="pill-input">{strategies[0]}</Pill>
+            <Pill className="pill-input">{strategies[0].name}</Pill>
           </label>
-          <label for="strat-1" onChange={() => handleSelect(1)}>
+          <label htmlFor="strat-1" onChange={() => handleSelect(1)}>
             <Input id="strat-1" type="checkbox" className="checkbox-input" />
-            <Pill className="pill-input">{strategies[1]}</Pill>
+            <Pill className="pill-input">{strategies[1].name}</Pill>
           </label>
-          <label for="strat-2" onChange={() => handleSelect(2)}>
+          <label htmlFor="strat-2" onChange={() => handleSelect(2)}>
             <Input id="strat-2" type="checkbox" className="checkbox-input" />
-            <Pill className="pill-input">{strategies[2]}</Pill>
+            <Pill className="pill-input">{strategies[2].name}</Pill>
           </label>
-          <label for="strat-3" onChange={() => handleSelect(3)}>
+          <label htmlFor="strat-3" onChange={() => handleSelect(3)}>
             <Input id="strat-3" type="checkbox" className="checkbox-input" />
-            <Pill className="pill-input">{strategies[3]}</Pill>
+            <Pill className="pill-input">{strategies[3].name}</Pill>
           </label>
-          <label for="strat-4" onChange={() => handleSelect(4)}>
+          <label htmlFor="strat-4" onChange={() => handleSelect(4)}>
             <Input id="strat-4" type="checkbox" className="checkbox-input" />
-            <Pill className="pill-input">{strategies[4]}</Pill>
+            <Pill className="pill-input">{strategies[4].name}</Pill>
           </label>
-          <label for="strat-5" onChange={() => handleSelect(5)}>
+          <label htmlFor="strat-5" onChange={() => handleSelect(5)}>
             <Input id="strat-5" type="checkbox" className="checkbox-input" />
-            <Pill className="pill-input">{strategies[5]}</Pill>
+            <Pill className="pill-input">{strategies[5].name}</Pill>
           </label>
-          <label for="strat-6" onChange={() => handleSelect(6)}>
+          <label htmlFor="strat-6" onChange={() => handleSelect(6)}>
             <Input id="strat-6" type="checkbox" className="checkbox-input" />
-            <Pill className="pill-input">{strategies[6]}</Pill>
+            <Pill className="pill-input">{strategies[6].name}</Pill>
           </label>
-          <label for="strat-7" onChange={() => handleSelect(7)}>
+          <label htmlFor="strat-7" onChange={() => handleSelect(7)}>
             <Input id="strat-7" type="checkbox" className="checkbox-input" />
-            <Pill className="pill-input">{strategies[7]}</Pill>
+            <Pill className="pill-input">{strategies[7].name}</Pill>
           </label>
         </PillGallery>
       </div>
