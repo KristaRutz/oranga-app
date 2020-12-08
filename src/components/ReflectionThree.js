@@ -95,7 +95,8 @@ function ReflectionThree({ handleContinueClick, handleBackClick }) {
       //setSelectedStrategies({ ...selectedStrategies, [val]: true });
       console.log("select ", val);
     }
-    console.log(selectedStrategies);
+    sessionStorage.setItem("strategies", JSON.stringify(selectedStrategies));
+    console.log(JSON.parse(sessionStorage.strategies));
   };
 
   return (
