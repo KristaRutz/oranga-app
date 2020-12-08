@@ -4,6 +4,7 @@ import OnboardingStart from "./OnboardingStart";
 import ReflectionOne from "./ReflectionOne";
 import ReflectionTwo from "./ReflectionTwo";
 import ReflectionThree from "./ReflectionThree";
+import ReflectionFour from "./ReflectionFour";
 import OnboardingFinish from "./OnboardingFinish";
 
 function OnboardingController() {
@@ -66,7 +67,13 @@ function OnboardingController() {
           handleBackClick={goBackScreen}
         />
       )}
-      {screen === 4 && <OnboardingFinish handleBackClick={goBackScreen} />}
+      {screen === 4 && (
+        <ReflectionFour
+          handleBackClick={goBackScreen}
+          handleContinueClick={advanceScreen}
+        />
+      )}
+      {screen === 5 && <OnboardingFinish handleBackClick={goBackScreen} />}
     </>
   );
 }

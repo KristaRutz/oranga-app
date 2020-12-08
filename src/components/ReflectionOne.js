@@ -43,17 +43,22 @@ function ReflectionOne({ handleContinueClick, handleBackClick }) {
   return (
     <div>
       <div>
-        <p>Reflection 1 of 3</p>
+        <p>Reflection 1 of 4</p>
       </div>
       <div>
         <div>
           <h2>How am I feeling right now?</h2>
-          <p class="description">Pick the one that most applies to you</p>
+          <p className="description">Pick the one that most applies to you</p>
         </div>
         <CardGallery>
           <label onClick={() => selectAnswer(OKAY)}>
-            <input type="radio" name="mood" class="radio-input" value={OKAY} />
-            <div class="card-input">
+            <input
+              type="radio"
+              name="mood"
+              className="radio-input"
+              value={OKAY}
+            />
+            <div className="card-input">
               <Face color="#FFCC99" />
               <LabelDescription>Okay</LabelDescription>
             </div>
@@ -62,10 +67,10 @@ function ReflectionOne({ handleContinueClick, handleBackClick }) {
             <input
               type="radio"
               name="mood"
-              class="radio-input"
+              className="radio-input"
               value={NOT_WELL}
             />
-            <div class="card-input">
+            <div className="card-input">
               <Face color="#FFC0CB" />
               <LabelDescription>Not Well</LabelDescription>
             </div>
@@ -74,10 +79,10 @@ function ReflectionOne({ handleContinueClick, handleBackClick }) {
             <input
               type="radio"
               name="mood"
-              class="radio-input"
+              className="radio-input"
               value={NOT_SURE}
             />
-            <div class="card-input">
+            <div className="card-input">
               <Face color="#A2D3C3" />
               <LabelDescription>Not Sure</LabelDescription>
             </div>
@@ -86,17 +91,17 @@ function ReflectionOne({ handleContinueClick, handleBackClick }) {
             <input
               type="radio"
               name="mood"
-              class="radio-input"
+              className="radio-input"
               value={DOING_WELL}
             />
-            <div class="card-input">
+            <div className="card-input">
               <Face />
               <LabelDescription>Doing Well</LabelDescription>
             </div>
           </label>
         </CardGallery>
       </div>
-      {moodSelection != "" && (
+      {moodSelection !== "" && (
         <div>
           <h4>I'm {moodSelection}</h4>
           {moodSelection === OKAY && (
