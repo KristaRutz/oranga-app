@@ -6,7 +6,7 @@ const Hero = styled.div`
   align-items: center;
   justify-content: center;
   min-height: 50vh;
-  width: 100vw;
+  width: 100%;
   background: #fffcfa;
   text-align: center;
 `;
