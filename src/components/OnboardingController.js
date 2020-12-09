@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 
+import NavBar from "./NavBar";
 import OnboardingStart from "./OnboardingStart";
 import ReflectionOne from "./ReflectionOne";
 import ReflectionTwo from "./ReflectionTwo";
@@ -48,6 +49,8 @@ function OnboardingController() {
 
   return (
     <>
+      {screen === 0 && <NavBar signIn />}
+      {screen !== 0 && screen !== 5 && <NavBar />}
       {screen === 0 && <OnboardingStart handleContinueClick={advanceScreen} />}
       {screen === 1 && (
         <ReflectionOne
