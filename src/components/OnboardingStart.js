@@ -1,14 +1,18 @@
 import React from "react";
 import styled from "styled-components";
+import { beige } from "./Branding";
+import wave from "../assets/images/wave.svg";
 
 const Hero = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 50vh;
-  width: 100vw;
+  width: 100%;
   background: #fffcfa;
   text-align: center;
+  //background-image: url(${wave});
+  background-size: 90vw 500px;
 `;
 const Title = styled.h1`
   font-weight: 500;
@@ -25,6 +29,8 @@ const SubTitle = styled.p`
 `;
 const ItalicSubTitle = styled(SubTitle)`
   font-style: italic;
+  text-align: center;
+  padding: 0% 24%;
 `;
 const H2 = styled.h2`
   font-weight: 500;
@@ -39,6 +45,7 @@ const Row = styled.div`
 `;
 const Col = styled.div`
   width: 50%;
+  overflow: visible;
 `;
 const Button = styled.button`
   outline: none;
@@ -50,10 +57,19 @@ const Button = styled.button`
   line-height: 1.17em;
   padding: 0.7em 5em;
 `;
+const Circle = styled.div`
+  margin-top: 10vw;
+  border-radius: 50%;
+  width: 55vw;
+  height: 55vw;
+  background-color: ${beige};
+  margin-bottom: -30vw;
+`;
 
 function OnboardingStart({ handleContinueClick }) {
   return (
     <div>
+      {/* <img src={wave} /> */}
       <Hero>
         <div>
           <Title>Welcome to Oranga</Title>
@@ -74,8 +90,8 @@ function OnboardingStart({ handleContinueClick }) {
           </SubTitle>
           <Button onClick={handleContinueClick}>Continue</Button>
         </Col>
-        <Col background="#DADADA">
-          <img alt="blank" height="150px" width="150px" background="#DADADA" />
+        <Col>
+          <Circle />
         </Col>
       </Row>
     </div>

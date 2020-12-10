@@ -1,5 +1,6 @@
 .App {
-  padding: 0vh 5vw 5vh 5vw;
+  background: #fffcfa;
+  overflow: hidden;
 }
 
 .App-header {

@@ -13,7 +13,6 @@ function SignIn({ user, loading, signOut, signInWithGoogle }) {
   return (
     <div>
       {loading && "Loading.."}
-      {user ? <p>Hello, {user.displayName}</p> : <p>Please sign in.</p>}
       {user ? (
         <button onClick={signOut}>Sign out</button>
       ) : (
