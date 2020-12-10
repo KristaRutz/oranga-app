@@ -6,6 +6,7 @@ const CardGallery = styled.form`
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
+  flex-wrap: wrap;
 `;
 const Face = styled.div`
   display: block;
@@ -106,26 +107,30 @@ function ReflectionOne({ handleContinueClick, handleBackClick }) {
           <h4>I'm {moodSelection}</h4>
           {moodSelection === OKAY && (
             <p>
-              By being aware of my current feelings, I can understand where I
-              stand.
+              Feeling just okay isn’t the worst place to be, but things could be
+              better. Have I thought through the factors in my environment and
+              in my week that could be causing this feeling?
             </p>
           )}
           {moodSelection === NOT_WELL && (
             <p>
-              By being aware of my current feelings, I can understand where I
-              stand.
+              Feeling unwell has taken a toll on my mental wellbeing and is
+              leading to burnout. Have I thought through the factors in my
+              environment and in my week that could be causing this feeling?
             </p>
           )}
           {moodSelection === NOT_SURE && (
             <p>
-              By being aware of my current feelings, I can understand where I
-              stand.
+              Feeling unsure of my current emotions is natural, but ambiguity
+              and uncertainty may be uncomfortable. Have I thought about how an
+              awareness of my emotions might lead to better emotional health?
             </p>
           )}
           {moodSelection === DOING_WELL && (
             <p>
-              By being aware of my current feelings, I can understand where I
-              stand.
+              By being aware of my current positive feelings, I can understand
+              where I stand. Have I thought through the best ways to address or
+              act on this awareness?”
             </p>
           )}
         </div>
@@ -133,9 +138,11 @@ function ReflectionOne({ handleContinueClick, handleBackClick }) {
       <button type="button" onClick={handleBackClick}>
         Back
       </button>
-      <button type="button" onClick={handleContinueClick}>
-        {">"}
-      </button>
+      {moodSelection !== "" && (
+        <button type="button" onClick={handleContinueClick}>
+          {">"}
+        </button>
+      )}
     </div>
   );
 }
