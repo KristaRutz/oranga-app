@@ -1,57 +1,57 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { strategies } from "./OnboardingFactors";
 
-const REFLECTING = "Reflecting";
-const TALKING_TO_MANAGER = "Talking to manager";
-const DAILY_PLANNING = "Daily planning";
-const UNPLUGGING_DIGITALLY = "Unplugging digitally";
-const SET_INTENTIONAL_TIME = "Set intentional time";
-const JOURNALING = "Journaling";
-const MEDITATION = "Meditation";
-const EXERCISE = "Exercising";
-
-const strategies = {
-  0: {
-    name: REFLECTING,
-    isUsing: false,
-    isEffective: null,
-  },
-  1: {
-    name: TALKING_TO_MANAGER,
-    isUsing: false,
-    isEffective: null,
-  },
-  2: {
-    name: DAILY_PLANNING,
-    isUsing: false,
-    isEffective: null,
-  },
-  3: {
-    name: UNPLUGGING_DIGITALLY,
-    isUsing: false,
-    isEffective: null,
-  },
-  4: {
-    name: SET_INTENTIONAL_TIME,
-    isUsing: false,
-    isEffective: null,
-  },
-  5: {
-    name: JOURNALING,
-    isUsing: false,
-    isEffective: null,
-  },
-  6: {
-    name: MEDITATION,
-    isUsing: false,
-    isEffective: null,
-  },
-  7: {
-    name: EXERCISE,
-    isUsing: false,
-    isEffective: null,
-  },
-};
+// const strategiesObj = {
+//   0: {
+//     id: 0,
+//     name: REFLECTING,
+//     isUsing: false,
+//     isEffective: null,
+//   },
+//   1: {
+//     id: 1,
+//     name: TALKING_TO_MANAGER,
+//     isUsing: false,
+//     isEffective: null,
+//   },
+//   2: {
+//     id: 2,
+//     name: DAILY_PLANNING,
+//     isUsing: false,
+//     isEffective: null,
+//   },
+//   3: {
+//     id: 3,
+//     name: UNPLUGGING_DIGITALLY,
+//     isUsing: false,
+//     isEffective: null,
+//   },
+//   4: {
+//     id: 4,
+//     name: SET_INTENTIONAL_TIME,
+//     isUsing: false,
+//     isEffective: null,
+//   },
+//   5: {
+//     id: 5,
+//     name: JOURNALING,
+//     isUsing: false,
+//     isEffective: null,
+//   },
+//   6: {
+//     id: 6,
+//     name: MEDITATION,
+//     isUsing: false,
+//     isEffective: null,
+//   },
+//   7: {
+//     id: 7,
+//     name: EXERCISE,
+//     isUsing: false,
+//     isEffective: null,
+//   },
+// };
 
 const PillGallery = styled.div`
   display: block;
@@ -110,7 +110,21 @@ function ReflectionThree({ handleContinueClick, handleBackClick }) {
           <p class="description">Select all that apply</p>
         </div>
         <PillGallery>
-          <label htmlFor="strat-0" onChange={() => handleSelect(0)}>
+          {strategies.map((s) => (
+            <label
+              key={s.id}
+              htmlFor={`strat-${s.id}`}
+              onChange={() => handleSelect(s.id)}
+            >
+              <Input
+                id={`strat-${s.id}`}
+                type="checkbox"
+                className="checkbox-input"
+              />
+              <Pill className="pill-input">{s.name}</Pill>
+            </label>
+          ))}
+          {/* <label htmlFor="strat-0" onChange={() => handleSelect(0)}>
             <Input id="strat-0" type="checkbox" className="checkbox-input" />
             <Pill className="pill-input">{strategies[0].name}</Pill>
           </label>
@@ -141,7 +155,7 @@ function ReflectionThree({ handleContinueClick, handleBackClick }) {
           <label htmlFor="strat-7" onChange={() => handleSelect(7)}>
             <Input id="strat-7" type="checkbox" className="checkbox-input" />
             <Pill className="pill-input">{strategies[7].name}</Pill>
-          </label>
+          </label> */}
         </PillGallery>
       </div>
       <button onClick={handleBackClick}>Back</button>
