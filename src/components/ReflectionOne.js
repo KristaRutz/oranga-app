@@ -139,7 +139,10 @@ function ReflectionOne({ handleContinueClick, handleBackClick }) {
         Back
       </button>
       {moodSelection !== "" && (
-        <button type="button" onClick={handleContinueClick}>
+        <button
+          type="button"
+          onClick={() => handleContinueClick(moodSelection)}
+        >
           {">"}
         </button>
       )}

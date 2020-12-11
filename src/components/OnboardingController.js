@@ -19,6 +19,8 @@ function OnboardingController() {
 
   const advanceScreen = () => {
     console.log(screen);
+    console.log(userInputs);
+    console.log(sessionStorage);
     if (screen >= 5) {
       // do something
     } else {
