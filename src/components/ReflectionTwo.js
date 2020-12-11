@@ -4,13 +4,13 @@ import { factors } from "./OnboardingFactors";
 function ReflectionTwo({ handleContinueClick }) {
   console.log(sessionStorage);
 
-  const [burnoutFactorSelection, setBurnoutFactorSelection] = useState("");
+  const [burnoutFactorSelection, setBurnoutFactorSelection] = useState(null);
 
   const selectAnswer = (event) => {
     event.preventDefault();
-    const val = event.currentTarget.value;
+    const val = parseInt(event.currentTarget.value);
     setBurnoutFactorSelection(val);
-    sessionStorage.setItem("burnoutFactor", factors[val].name);
+    sessionStorage.setItem("burnoutFactor", val);
   };
 
   return (
@@ -44,13 +44,13 @@ function ReflectionTwo({ handleContinueClick }) {
           </select>
         </div>
       </div>
-      {burnoutFactorSelection != "" && (
+      {burnoutFactorSelection != null && (
         <div>
           <h4>{factors[burnoutFactorSelection].description}</h4>
           <p>{factors[burnoutFactorSelection].data}</p>
         </div>
       )}
-      {burnoutFactorSelection !== "" && (
+      {burnoutFactorSelection !== null && (
         <button onClick={() => handleContinueClick(burnoutFactorSelection)}>
           {">"}
         </button>

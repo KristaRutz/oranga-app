@@ -1,57 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { strategies } from "./OnboardingFactors";
-
-// const strategiesObj = {
-//   0: {
-//     id: 0,
-//     name: REFLECTING,
-//     isUsing: false,
-//     isEffective: null,
-//   },
-//   1: {
-//     id: 1,
-//     name: TALKING_TO_MANAGER,
-//     isUsing: false,
-//     isEffective: null,
-//   },
-//   2: {
-//     id: 2,
-//     name: DAILY_PLANNING,
-//     isUsing: false,
-//     isEffective: null,
-//   },
-//   3: {
-//     id: 3,
-//     name: UNPLUGGING_DIGITALLY,
-//     isUsing: false,
-//     isEffective: null,
-//   },
-//   4: {
-//     id: 4,
-//     name: SET_INTENTIONAL_TIME,
-//     isUsing: false,
-//     isEffective: null,
-//   },
-//   5: {
-//     id: 5,
-//     name: JOURNALING,
-//     isUsing: false,
-//     isEffective: null,
-//   },
-//   6: {
-//     id: 6,
-//     name: MEDITATION,
-//     isUsing: false,
-//     isEffective: null,
-//   },
-//   7: {
-//     id: 7,
-//     name: EXERCISE,
-//     isUsing: false,
-//     isEffective: null,
-//   },
-// };
+import { factors, strategies } from "./OnboardingFactors";
 
 const PillGallery = styled.div`
   display: block;
@@ -80,9 +29,11 @@ const Pill = styled.div`
 `;
 
 function ReflectionThree({ handleContinueClick }) {
-  const [selectedStrategies, setSelectedStrategies] = useState(
-    Object.assign({}, strategies)
-  );
+  // const [selectedStrategies, setSelectedStrategies] = useState(
+  //   Object.assign({}, strategies)
+  // );
+  sessionStorage.setItem("strategies", JSON.stringify(strategies));
+  const [selectedStrategies, setSelectedStrategies] = useState(strategies);
 
   const handleSelect = (val) => {
     // convert this to use the setSelectedStrategies function
@@ -106,56 +57,32 @@ function ReflectionThree({ handleContinueClick }) {
       </div>
       <div>
         <div>
-          <h2>How are you currently dealing with this?</h2>
+          <h2>
+            What strategies have I recently tried to deal with my burnout?
+          </h2>
           <p class="description">Select all that apply</p>
         </div>
         <PillGallery>
-          {strategies.map((s) => (
-            <label
-              key={s.id}
-              htmlFor={`strat-${s.id}`}
-              onChange={() => handleSelect(s.id)}
-            >
-              <Input
-                id={`strat-${s.id}`}
-                type="checkbox"
-                className="checkbox-input"
-              />
-              <Pill className="pill-input">{s.name}</Pill>
-            </label>
-          ))}
-          {/* <label htmlFor="strat-0" onChange={() => handleSelect(0)}>
-            <Input id="strat-0" type="checkbox" className="checkbox-input" />
-            <Pill className="pill-input">{strategies[0].name}</Pill>
-          </label>
-          <label htmlFor="strat-1" onChange={() => handleSelect(1)}>
-            <Input id="strat-1" type="checkbox" className="checkbox-input" />
-            <Pill className="pill-input">{strategies[1].name}</Pill>
-          </label>
-          <label htmlFor="strat-2" onChange={() => handleSelect(2)}>
-            <Input id="strat-2" type="checkbox" className="checkbox-input" />
-            <Pill className="pill-input">{strategies[2].name}</Pill>
-          </label>
-          <label htmlFor="strat-3" onChange={() => handleSelect(3)}>
-            <Input id="strat-3" type="checkbox" className="checkbox-input" />
-            <Pill className="pill-input">{strategies[3].name}</Pill>
-          </label>
-          <label htmlFor="strat-4" onChange={() => handleSelect(4)}>
-            <Input id="strat-4" type="checkbox" className="checkbox-input" />
-            <Pill className="pill-input">{strategies[4].name}</Pill>
-          </label>
-          <label htmlFor="strat-5" onChange={() => handleSelect(5)}>
-            <Input id="strat-5" type="checkbox" className="checkbox-input" />
-            <Pill className="pill-input">{strategies[5].name}</Pill>
-          </label>
-          <label htmlFor="strat-6" onChange={() => handleSelect(6)}>
-            <Input id="strat-6" type="checkbox" className="checkbox-input" />
-            <Pill className="pill-input">{strategies[6].name}</Pill>
-          </label>
-          <label htmlFor="strat-7" onChange={() => handleSelect(7)}>
-            <Input id="strat-7" type="checkbox" className="checkbox-input" />
-            <Pill className="pill-input">{strategies[7].name}</Pill>
-          </label> */}
+          {strategies
+            .filter((s) =>
+              factors[
+                sessionStorage.getItem("burnoutFactor")
+              ].strategies.includes(s.id)
+            )
+            .map((s) => (
+              <label
+                key={s.id}
+                htmlFor={`strat-${s.id}`}
+                onChange={() => handleSelect(s.id)}
+              >
+                <Input
+                  id={`strat-${s.id}`}
+                  type="checkbox"
+                  className="checkbox-input"
+                />
+                <Pill className="pill-input">{s.name}</Pill>
+              </label>
+            ))}
         </PillGallery>
       </div>
       <button onClick={handleContinueClick}>{">"}</button>

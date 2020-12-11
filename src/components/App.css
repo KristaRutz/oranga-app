@@ -17,6 +17,7 @@ button {
   border-radius: 2px;
   padding: 1vh;
   border: none;
+  cursor: pointer;
 }
 
 h1 {

@@ -197,3 +197,54 @@ export const factors = {
       "Only 49% of employees feel comfortable talking to their line manager about their mental health (Deloitte 2020)",
   },
 };
+
+// const strategiesObj = {
+//   0: {
+//     id: 0,
+//     name: REFLECTING,
+//     isUsing: false,
+//     isEffective: null,
+//   },
+//   1: {
+//     id: 1,
+//     name: TALKING_TO_MANAGER,
+//     isUsing: false,
+//     isEffective: null,
+//   },
+//   2: {
+//     id: 2,
+//     name: DAILY_PLANNING,
+//     isUsing: false,
+//     isEffective: null,
+//   },
+//   3: {
+//     id: 3,
+//     name: UNPLUGGING_DIGITALLY,
+//     isUsing: false,
+//     isEffective: null,
+//   },
+//   4: {
+//     id: 4,
+//     name: SET_INTENTIONAL_TIME,
+//     isUsing: false,
+//     isEffective: null,
+//   },
+//   5: {
+//     id: 5,
+//     name: JOURNALING,
+//     isUsing: false,
+//     isEffective: null,
+//   },
+//   6: {
+//     id: 6,
+//     name: MEDITATION,
+//     isUsing: false,
+//     isEffective: null,
+//   },
+//   7: {
+//     id: 7,
+//     name: EXERCISE,
+//     isUsing: false,
+//     isEffective: null,
+//   },
+// };

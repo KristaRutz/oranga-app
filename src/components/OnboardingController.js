@@ -18,17 +18,17 @@ const Screen = styled.div`
 `;
 
 function OnboardingController() {
-  let userInputs = {
-    question1: 1,
-    question2: [],
-    question3: [],
-  };
+  const [userInputs, setUserInputs] = useState({
+    mood: null,
+    burnoutFactor: null,
+    strategies: [],
+  });
 
   const [screen, setScreen] = useState(0);
 
   const advanceScreen = () => {
-    console.log(screen);
-    console.log(userInputs);
+    //console.log(screen);
+    //console.log(userInputs);
     console.log(sessionStorage);
     if (screen >= 5) {
       // do something
@@ -45,16 +45,16 @@ function OnboardingController() {
     }
   };
   const completeReflectionOne = (emotion) => {
-    userInputs.question1 = emotion;
+    setUserInputs({ ...userInputs, mood: emotion });
     advanceScreen();
   };
   const completeReflectionTwo = (burnoutSource) => {
-    userInputs.question2 = burnoutSource;
-    // determine the questions to show in screen 3
+    //userInputs.burnoutFactor = parseInt(burnoutSource);
+    setUserInputs({ ...userInputs, burnoutFactor: burnoutSource });
     advanceScreen();
   };
   const completeReflectionThree = (currentPractices) => {
-    userInputs.question3 = currentPractices;
+    userInputs.strategies = currentPractices;
     advanceScreen();
   };
 
