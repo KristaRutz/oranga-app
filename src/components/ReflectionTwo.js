@@ -50,7 +50,6 @@ function ReflectionTwo({ handleContinueClick, handleBackClick }) {
           <p>{factors[burnoutFactorSelection].data}</p>
         </div>
       )}
-      <button onClick={handleBackClick}>Back</button>
       {burnoutFactorSelection !== "" && (
         <button onClick={() => handleContinueClick(burnoutFactorSelection)}>
           {">"}

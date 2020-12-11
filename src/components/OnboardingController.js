@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import styled from "styled-components";
 
 import NavBar from "./NavBar";
 import OnboardingStart from "./OnboardingStart";
@@ -7,6 +8,14 @@ import ReflectionTwo from "./ReflectionTwo";
 import ReflectionThree from "./ReflectionThree";
 import ReflectionFour from "./ReflectionFour";
 import OnboardingFinish from "./OnboardingFinish";
+
+const Screen = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  height: 70vh;
+`;
 
 function OnboardingController() {
   let userInputs = {
@@ -53,32 +62,41 @@ function OnboardingController() {
     <>
       {screen === 0 && <NavBar signIn />}
       {screen !== 0 && screen !== 5 && <NavBar />}
-      {screen === 0 && <OnboardingStart handleContinueClick={advanceScreen} />}
-      {screen === 1 && (
-        <ReflectionOne
-          handleContinueClick={completeReflectionOne}
-          handleBackClick={goBackScreen}
-        />
-      )}
-      {screen === 2 && (
-        <ReflectionTwo
-          handleContinueClick={completeReflectionTwo}
-          handleBackClick={goBackScreen}
-        />
-      )}
-      {screen === 3 && (
-        <ReflectionThree
-          handleContinueClick={completeReflectionThree}
-          handleBackClick={goBackScreen}
-        />
-      )}
-      {screen === 4 && (
-        <ReflectionFour
-          handleBackClick={goBackScreen}
-          handleContinueClick={advanceScreen}
-        />
-      )}
-      {screen === 5 && <OnboardingFinish handleBackClick={goBackScreen} />}
+      <Screen>
+        {screen === 0 && (
+          <OnboardingStart handleContinueClick={advanceScreen} />
+        )}
+        {screen === 1 && (
+          <ReflectionOne
+            handleContinueClick={completeReflectionOne}
+            handleBackClick={goBackScreen}
+          />
+        )}
+        {screen === 2 && (
+          <ReflectionTwo
+            handleContinueClick={completeReflectionTwo}
+            handleBackClick={goBackScreen}
+          />
+        )}
+        {screen === 3 && (
+          <ReflectionThree
+            handleContinueClick={completeReflectionThree}
+            handleBackClick={goBackScreen}
+          />
+        )}
+        {screen === 4 && (
+          <ReflectionFour
+            handleBackClick={goBackScreen}
+            handleContinueClick={advanceScreen}
+          />
+        )}
+        {screen === 5 && <OnboardingFinish handleBackClick={goBackScreen} />}
+        {screen > 0 && (
+          <button type="button" onClick={goBackScreen}>
+            Back
+          </button>
+        )}
+      </Screen>
     </>
   );
 }

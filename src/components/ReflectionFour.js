@@ -61,7 +61,6 @@ function ReflectionFour({ handleContinueClick, handleBackClick }) {
           </div>
         </MainLayout>
       </div>
-      <button onClick={handleBackClick}>Back</button>
       <button onClick={handleContinueClick}>{">"}</button>
     </div>
   );

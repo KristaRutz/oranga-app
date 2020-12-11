@@ -158,7 +158,6 @@ function ReflectionThree({ handleContinueClick, handleBackClick }) {
           </label> */}
         </PillGallery>
       </div>
-      <button onClick={handleBackClick}>Back</button>
       <button onClick={handleContinueClick}>{">"}</button>
     </div>
   );

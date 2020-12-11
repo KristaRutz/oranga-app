@@ -135,9 +135,6 @@ function ReflectionOne({ handleContinueClick, handleBackClick }) {
           )}
         </div>
       )}
-      <button type="button" onClick={handleBackClick}>
-        Back
-      </button>
       {moodSelection !== "" && (
         <button
           type="button"
