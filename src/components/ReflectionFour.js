@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { beige } from "./Branding";
+import { light_orng } from "./Branding";
 
 const MainLayout = styled.div`
   display: flex;
@@ -33,7 +33,7 @@ const BarButton = styled.button`
   width: 100%;
   height: 100%;
   :hover {
-    background: ${beige};
+    background: ${light_orng};
   }
 `;
 const Line = styled.div`

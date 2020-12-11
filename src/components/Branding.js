@@ -1,4 +1,5 @@
 export const orng = "#FFCC99";
+export const light_orng = "#FFE5CC";
 export const grn = "#A2D3C3";
 export const beige = "#F0E3DF";
 export const pnk = "#FFC0CB";
