@@ -31,7 +31,7 @@ const NOT_WELL = "not well";
 const NOT_SURE = "not sure";
 const DOING_WELL = "doing well";
 
-function ReflectionOne({ handleContinueClick, handleBackClick }) {
+function ReflectionOne({ handleContinueClick }) {
   console.log(sessionStorage);
 
   const [moodSelection, setMoodSelection] = useState("");

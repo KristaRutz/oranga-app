@@ -67,30 +67,16 @@ function OnboardingController() {
           <OnboardingStart handleContinueClick={advanceScreen} />
         )}
         {screen === 1 && (
-          <ReflectionOne
-            handleContinueClick={completeReflectionOne}
-            handleBackClick={goBackScreen}
-          />
+          <ReflectionOne handleContinueClick={completeReflectionOne} />
         )}
         {screen === 2 && (
-          <ReflectionTwo
-            handleContinueClick={completeReflectionTwo}
-            handleBackClick={goBackScreen}
-          />
+          <ReflectionTwo handleContinueClick={completeReflectionTwo} />
         )}
         {screen === 3 && (
-          <ReflectionThree
-            handleContinueClick={completeReflectionThree}
-            handleBackClick={goBackScreen}
-          />
+          <ReflectionThree handleContinueClick={completeReflectionThree} />
         )}
-        {screen === 4 && (
-          <ReflectionFour
-            handleBackClick={goBackScreen}
-            handleContinueClick={advanceScreen}
-          />
-        )}
-        {screen === 5 && <OnboardingFinish handleBackClick={goBackScreen} />}
+        {screen === 4 && <ReflectionFour handleContinueClick={advanceScreen} />}
+        {screen === 5 && <OnboardingFinish />}
         {screen > 0 && (
           <button type="button" onClick={goBackScreen}>
             Back

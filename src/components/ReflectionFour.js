@@ -33,7 +33,7 @@ const Line = styled.div`
   height: 38px;
 `;
 
-function ReflectionFour({ handleContinueClick, handleBackClick }) {
+function ReflectionFour({ handleContinueClick }) {
   const handleSelect = (val) => {};
 
   return (

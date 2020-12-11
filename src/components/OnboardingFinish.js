@@ -20,7 +20,7 @@ const CenteredCol = styled(Col)`
   text-align: center;
 `;
 
-function OnboardingFinish({ handleBackClick }) {
+function OnboardingFinish() {
   return (
     <Layout>
       <Row>

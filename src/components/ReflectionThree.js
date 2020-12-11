@@ -79,7 +79,7 @@ const Pill = styled.div`
   }
 `;
 
-function ReflectionThree({ handleContinueClick, handleBackClick }) {
+function ReflectionThree({ handleContinueClick }) {
   const [selectedStrategies, setSelectedStrategies] = useState(
     Object.assign({}, strategies)
   );

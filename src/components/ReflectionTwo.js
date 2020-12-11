@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { factors } from "./OnboardingFactors";
 
-function ReflectionTwo({ handleContinueClick, handleBackClick }) {
+function ReflectionTwo({ handleContinueClick }) {
   console.log(sessionStorage);
 
   const [burnoutFactorSelection, setBurnoutFactorSelection] = useState("");
