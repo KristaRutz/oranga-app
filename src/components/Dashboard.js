@@ -93,7 +93,13 @@ function Dashboard() {
                   ))}
             </StatusCard>
           </div>
-          <RoutineButton>Find a routine</RoutineButton>
+          <a
+            href={
+              "https://becky205891.invisionapp.com/console/Oranga-ckijr0yhm00zf01a67ixe398o/ckijr6qa4006201ap6jpsh84k/play"
+            }
+          >
+            <RoutineButton>Find a routine</RoutineButton>
+          </a>
         </Dash>
       </div>
     );
