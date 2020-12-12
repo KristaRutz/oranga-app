@@ -10,7 +10,7 @@ const Hero = styled.div`
   justify-content: center;
   min-height: 50vh;
   width: 100%;
-  background: #fffcfa;
+  //background: #fffcfa;
   text-align: center;
 `;
 const Title = styled.h1`
@@ -84,8 +84,11 @@ function OnboardingStart({ handleContinueClick }) {
             Let's get you to start reflecting on how you're doing right now.
           </H2>
           <SubTitle>
-            By knowing yourself, you will be the best version of yourself. It’s
-            time for you to break free from burnout.
+            Let’s get you to start reflecting on how you’re doing right now. By
+            becoming more aware of your current mental and emotional states, you
+            will gain more control and deeper influence over all aspects of
+            life. This initial self-diagnosis will only take 3 minutes of your
+            time.
           </SubTitle>
           <Button onClick={handleContinueClick}>Continue</Button>
         </Col>
