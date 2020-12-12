@@ -1,32 +1,31 @@
 import React, { useContext } from "react";
 import { UserContext } from "../providers/UserProvider";
+import { db } from "../firebase";
 
+import { factors } from "./OnboardingFactors";
 import NavBar from "./NavBar";
 
 function Dashboard() {
   const user = useContext(UserContext);
-  const { photoURL, displayName, email } = user;
+  //console.log(user);
+  //console.log(user.metadata.lastSignInTime);
+  const { displayName } = user;
+  const userRef = db.collection("users").doc(user.uid);
+  userRef.update({
+    mood: sessionStorage.getItem("mood"),
+    burnoutSource: sessionStorage.getItem("burnoutFactor"),
+    strategies: JSON.parse(sessionStorage.getItem("strategies")),
+  });
+
   return (
     <div>
       <NavBar signIn></NavBar>
-      <h1>Welcome, {displayName}</h1>
+      <h1>Welcome, {displayName}! Here is your status.</h1>
       <div>
         <div>
-          <div
-            style={{
-              background: `url(${
-                photoURL ||
-                "https://res.cloudinary.com/dqcsk8rsc/image/upload/v1577268053/avatar-1-bitmoji_upgwhc.png"
-              })  no-repeat center center`,
-              //backgroundSize: "cover",
-              height: "100px",
-              width: "100px",
-            }}
-          ></div>
-          <div>
-            <h2>{displayName}</h2>
-            <h3>{email}</h3>
-          </div>
+          <h2>How I'm feeling</h2>
+          <p>I'm {user.mood}</p>
+          <p>{factors[parseInt(user.burnoutSource)].description}</p>
         </div>
       </div>
     </div>
