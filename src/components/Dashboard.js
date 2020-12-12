@@ -45,11 +45,22 @@ function Dashboard() {
 
   const { displayName } = user;
   const userRef = db.collection("users").doc(user.uid);
-  userRef.update({
-    mood: sessionStorage.getItem("mood"),
-    burnoutSource: sessionStorage.getItem("burnoutFactor"),
-    strategies: JSON.parse(sessionStorage.getItem("strategies")),
-  });
+  if (!user.mood && sessionStorage.getItem("mood")) {
+    userRef.update({ mood: sessionStorage.getItem("mood") });
+  }
+  if (!user.burnoutFactor && sessionStorage.getItem("burnoutFactor")) {
+    userRef.update({ burnoutFactor: sessionStorage.getItem("burnoutFactor") });
+  }
+  if (!user.strategies && sessionStorage.getItem("strategies")) {
+    userRef.update({
+      strategies: JSON.parse(sessionStorage.getItem("strategies")),
+    });
+  }
+  // userRef.update({
+  //   mood: sessionStorage.getItem("mood"),
+  //   burnoutFactor: sessionStorage.getItem("burnoutFactor"),
+  //   strategies: JSON.parse(sessionStorage.getItem("strategies")),
+  // });
 
   console.log(user.strategies.filter((s) => s.isUsing));
 
@@ -62,21 +73,24 @@ function Dashboard() {
           <div>
             <StatusCard>
               <H2>How I'm feeling</H2>
-              <p>I'm {user.mood}</p>
-              <p>{factors[parseInt(user.burnoutSource)].description}</p>
+              {user.mood != null && <p>I'm {user.mood}</p>}
+              {user.burnoutFactor != null && (
+                <p>{factors[parseInt(user.burnoutFactor)].description}</p>
+              )}
               <H2>My strategies</H2>
-              {user.strategies
-                .filter((s) => s.isUsing)
-                .map((s) => (
-                  <StrategyItem key={s.id}>
-                    {s.isEffective ? (
-                      <StrategyIcon src={check} />
-                    ) : (
-                      <StrategyIcon src={x_mark} />
-                    )}{" "}
-                    {s.name}
-                  </StrategyItem>
-                ))}
+              {user.strategies != null &&
+                user.strategies
+                  .filter((s) => s.isUsing)
+                  .map((s) => (
+                    <StrategyItem key={s.id}>
+                      {s.isEffective ? (
+                        <StrategyIcon src={check} />
+                      ) : (
+                        <StrategyIcon src={x_mark} />
+                      )}{" "}
+                      {s.name}
+                    </StrategyItem>
+                  ))}
             </StatusCard>
           </div>
           <RoutineButton>Find a routine</RoutineButton>
