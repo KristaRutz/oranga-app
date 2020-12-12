@@ -25,10 +25,12 @@ function OnboardingFinish() {
     <Layout>
       <Row>
         <Col>
-          <h2>You've already made progress in your mental wellness journey!</h2>
+          <h2>
+            You just completed your first inner reflection! The true value comes
+            from consistency.
+          </h2>
           <p className="lead">
-            Within seconds, you will gain insights into your current wellbeing
-            and recieve personalized options for dealing with burnout.
+          Create an account to gain personalized options and track your progress.
           </p>
         </Col>
         <CenteredCol>
