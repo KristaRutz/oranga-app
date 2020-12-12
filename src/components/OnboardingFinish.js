@@ -20,7 +20,7 @@ const CenteredCol = styled(Col)`
   text-align: center;
 `;
 
-function OnboardingFinish({ handleBackClick }) {
+function OnboardingFinish() {
   return (
     <Layout>
       <Row>
@@ -30,7 +30,6 @@ function OnboardingFinish({ handleBackClick }) {
             Within seconds, you will gain insights into your current wellbeing
             and recieve personalized options for dealing with burnout.
           </p>
-          <button onClick={handleBackClick}>Back</button>
         </Col>
         <CenteredCol>
           <SignIn />

@@ -1,47 +1,14 @@
 import React, { useState } from "react";
+import { factors } from "./OnboardingFactors";
 
-const WORKLOAD = "workload";
-const CONTROL = "control";
-const REWARD = "reward";
-const COMMUNITY = "community";
-const FAIRNESS = "fairness";
-const VALUES = "values";
-
-const factors = {
-  1: {
-    name: WORKLOAD,
-    description: "I am overwhelmed by my workload",
-  },
-  2: {
-    name: CONTROL,
-    description: "I don't have control over my work context",
-  },
-  3: {
-    name: REWARD,
-    description: "I am not appropiately rewarded for the work I do",
-  },
-  4: {
-    name: COMMUNITY,
-    description: "My workplace culture causes burnout",
-  },
-  5: {
-    name: FAIRNESS,
-    description: "I'm not treated fairly at work",
-  },
-  6: {
-    name: VALUES,
-    description: "My work doesn't align with my values",
-  },
-};
-
-function ReflectionTwo({ handleContinueClick, handleBackClick }) {
+function ReflectionTwo({ handleContinueClick }) {
   console.log(sessionStorage);
 
-  const [burnoutFactorSelection, setBurnoutFactorSelection] = useState("");
+  const [burnoutFactorSelection, setBurnoutFactorSelection] = useState(null);
 
   const selectAnswer = (event) => {
     event.preventDefault();
-    const val = event.target.value;
+    const val = parseInt(event.currentTarget.value);
     setBurnoutFactorSelection(val);
     sessionStorage.setItem("burnoutFactor", val);
   };
@@ -61,26 +28,33 @@ function ReflectionTwo({ handleContinueClick, handleBackClick }) {
             name="burnout factors"
             id="burnout-factors-select-list"
             onChange={(event) => selectAnswer(event)}
+            defaultValue="none"
           >
-            <option value="" disabled>
+            <option value="none" disabled hidden>
               --Select one--
             </option>
-            <option value={factors[1].name}>{factors[1].description}</option>
-            <option value={factors[2].name}>{factors[2].description}</option>
-            <option value={factors[3].name}>{factors[3].description}</option>
-            <option value={factors[4].name}>{factors[4].description}</option>
-            <option value={factors[5].name}>{factors[5].description}</option>
-            <option value={factors[6].name}>{factors[6].description}</option>
+            <option value={0}>{factors[0].description}</option>
+            <option value={1}>{factors[1].description}</option>
+            <option value={2}>{factors[2].description}</option>
+            <option value={3}>{factors[3].description}</option>
+            <option value={4}>{factors[4].description}</option>
+            <option value={5}>{factors[5].description}</option>
+            <option value={6}>{factors[6].description}</option>
+            <option value={7}>{factors[7].description}</option>
           </select>
         </div>
       </div>
-      {burnoutFactorSelection != "" && (
+      {burnoutFactorSelection != null && (
         <div>
-          <h4>{burnoutFactorSelection}</h4>
+          <h4>{factors[burnoutFactorSelection].description}</h4>
+          <p>{factors[burnoutFactorSelection].data}</p>
         </div>
       )}
-      <button onClick={handleBackClick}>Back</button>
-      <button onClick={handleContinueClick}>{">"}</button>
+      {burnoutFactorSelection !== null && (
+        <button onClick={() => handleContinueClick(burnoutFactorSelection)}>
+          {">"}
+        </button>
+      )}
     </div>
   );
 }

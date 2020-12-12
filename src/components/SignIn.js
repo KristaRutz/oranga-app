@@ -14,10 +14,10 @@ function SignIn({ user, loading, signOut, signInWithGoogle }) {
     <div>
       {loading && "Loading.."}
       {user ? (
-        <button onClick={signOut}>Sign out</button>
+        <button onClick={signOut}>Sign out {user.email}</button>
       ) : (
         <button
-          class="authProvider-google authProvider btn"
+          className="authProvider-google authProvider btn"
           onClick={signInWithGoogle}
         >
           Sign in with Google

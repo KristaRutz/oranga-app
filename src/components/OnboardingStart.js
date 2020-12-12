@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { beige } from "./Branding";
 import wave from "../assets/images/wave.svg";
+import Wave from "./Wave";
 
 const Hero = styled.div`
   display: flex;
@@ -11,8 +12,6 @@ const Hero = styled.div`
   width: 100%;
   background: #fffcfa;
   text-align: center;
-  //background-image: url(${wave});
-  background-size: 90vw 500px;
 `;
 const Title = styled.h1`
   font-weight: 500;
@@ -69,7 +68,6 @@ const Circle = styled.div`
 function OnboardingStart({ handleContinueClick }) {
   return (
     <div>
-      {/* <img src={wave} /> */}
       <Hero>
         <div>
           <Title>Welcome to Oranga</Title>
@@ -77,6 +75,7 @@ function OnboardingStart({ handleContinueClick }) {
             A digital therapy experience designed to optimize your mental
             wellbeing through self-guided actions.
           </ItalicSubTitle>
+          {/* <Wave></Wave> */}
         </div>
       </Hero>
       <Row>

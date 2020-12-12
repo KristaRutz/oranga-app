@@ -1,5 +1,5 @@
 .App {
-  background: #fffcfa;
+  background: #fcf9f9;
   overflow: hidden;
 }
 
@@ -17,10 +17,19 @@ button {
   border-radius: 2px;
   padding: 1vh;
   border: none;
+  cursor: pointer;
+  background: inherit;
 }
 
 h1 {
   font-weight: 400;
+}
+
+p {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
 }
 
 .authProvider {
