@@ -66,7 +66,6 @@ const Circle = styled.div`
 `;
 const Lady = styled.div`
   position: absolute;
-  height: 55vw;
   right: 0;
 `;
 
