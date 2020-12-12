@@ -1,14 +1,48 @@
 import React, { useContext } from "react";
+import styled from "styled-components";
 import { UserContext } from "../providers/UserProvider";
 import { db } from "../firebase";
 
 import { factors } from "./OnboardingFactors";
 import NavBar from "./NavBar";
+import check from "../assets/images/green_check.svg";
+import x_mark from "../assets/images/red_x.svg";
+import { CTAButton } from "./Branding";
+
+const Dash = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+const StatusCard = styled.div`
+  background: #ffffff;
+  border-radius: 8px;
+  max-width: 500px;
+  padding: 10px 30px;
+`;
+const H2 = styled.h2`
+  margin-top: 30px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 21px;
+`;
+const StrategyItem = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 4px;
+`;
+const StrategyIcon = styled.img`
+  padding: 4px 8px 4px 0px;
+`;
+const RoutineButton = styled(CTAButton)`
+  margin: 20px;
+`;
 
 function Dashboard() {
   const user = useContext(UserContext);
-  //console.log(user);
-  //console.log(user.metadata.lastSignInTime);
+
   const { displayName } = user;
   const userRef = db.collection("users").doc(user.uid);
   userRef.update({
@@ -17,19 +51,39 @@ function Dashboard() {
     strategies: JSON.parse(sessionStorage.getItem("strategies")),
   });
 
-  return (
-    <div>
-      <NavBar signIn></NavBar>
-      <h1>Welcome, {displayName}! Here is your status.</h1>
+  console.log(user.strategies.filter((s) => s.isUsing));
+
+  if (user) {
+    return (
       <div>
-        <div>
-          <h2>How I'm feeling</h2>
-          <p>I'm {user.mood}</p>
-          <p>{factors[parseInt(user.burnoutSource)].description}</p>
-        </div>
+        <NavBar signIn></NavBar>
+        <Dash>
+          <H2>Welcome, {displayName}! Here is your current status.</H2>
+          <div>
+            <StatusCard>
+              <H2>How I'm feeling</H2>
+              <p>I'm {user.mood}</p>
+              <p>{factors[parseInt(user.burnoutSource)].description}</p>
+              <H2>My strategies</H2>
+              {user.strategies
+                .filter((s) => s.isUsing)
+                .map((s) => (
+                  <StrategyItem key={s.id}>
+                    {s.isEffective ? (
+                      <StrategyIcon src={check} />
+                    ) : (
+                      <StrategyIcon src={x_mark} />
+                    )}{" "}
+                    {s.name}
+                  </StrategyItem>
+                ))}
+            </StatusCard>
+          </div>
+          <RoutineButton>Find a routine</RoutineButton>
+        </Dash>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
 export default Dashboard;
